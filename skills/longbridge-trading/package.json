@@ -1,0 +1,16 @@
+{
+  "name": "longbridge-trading",
+  "version": "1.0.0",
+  "description": "AI-powered trading with Longbridge API",
+  "main": "bin/tools.py",
+  "dependencies": ["longbridge>=0.2.0"],
+  "commands": {
+    "quote": "bin/tools.py quote <symbols>",
+    "positions": "bin/tools.py positions",
+    "balance": "bin/tools.py balance",
+    "buy": "bin/tools.py buy <symbol> <qty> [price]",
+    "sell": "bin/tools.py sell <symbol> <qty> [price]",
+    "orders": "bin/tools.py orders",
+    "dashboard": "bin/dashboard.py"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "longbridge-trading",
+  "version": "1.0.0",
+  "description": "Longbridge API integration for real stock trading execution. Supports US, HK, and A-share markets.",
+  "author": "Astra Team",
+  "keywords": ["longbridge", "trading", "stock", "api"],
+  "repository": "",
+  "license": "MIT"
+}

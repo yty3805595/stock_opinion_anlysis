@@ -1,0 +1,10 @@
+{
+  "name": "RD-Agent Trading",
+  "version": "1.0.0",
+  "description": "AI-driven US stock trading signal system based on RD-Agent architecture",
+  "author": "OpenClaw",
+  "tags": ["trading", "ai", "quant", "stocks", "signals"],
+  "requirements": ["python>=3.8"],
+  "capabilities": ["trading_signals", "market_analysis"],
+  "channel": "all"
+}
