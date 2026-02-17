@@ -1,0 +1,70 @@
+{
+  "positions": {
+    "TSLA": {
+      "symbol": "TSLA",
+      "quantity": 10.0,
+      "avg_price": 416.67,
+      "current_price": 404.085,
+      "market_value": 4040.85,
+      "pnl": -125.85000000000036,
+      "pnl_pct": -3.0203758369933125,
+      "weight": 0,
+      "side": "long",
+      "entry_date": "2026-02-13",
+      "high_price": 404.085
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "quantity": 54.0,
+      "avg_price": 186.94,
+      "current_price": 181.9,
+      "market_value": 9822.6,
+      "pnl": -272.15999999999957,
+      "pnl_pct": -2.6960522092650008,
+      "weight": 0,
+      "side": "long",
+      "entry_date": "2026-02-13",
+      "high_price": 181.9
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "quantity": 25.0,
+      "avg_price": 401.78,
+      "current_price": 397.73,
+      "market_value": 9943.25,
+      "pnl": -101.24999999999886,
+      "pnl_pct": -1.0080143362038814,
+      "weight": 0,
+      "side": "long",
+      "entry_date": "2026-02-13",
+      "high_price": 397.73
+    },
+    "GOOGL": {
+      "symbol": "GOOGL",
+      "quantity": 33.0,
+      "avg_price": 309.0,
+      "current_price": 299.56,
+      "market_value": 9885.48,
+      "pnl": -311.5199999999999,
+      "pnl_pct": -3.0550161812297727,
+      "weight": 0,
+      "side": "long",
+      "entry_date": "2026-02-13",
+      "high_price": 299.56
+    },
+    "QQQ": {
+      "symbol": "QQQ",
+      "quantity": 68.0,
+      "avg_price": 600.64,
+      "current_price": 596.91,
+      "market_value": 40589.88,
+      "pnl": -253.64000000000124,
+      "pnl_pct": -0.6210042621204079,
+      "weight": 0,
+      "side": "long",
+      "entry_date": "2026-02-13",
+      "high_price": 596.91
+    }
+  },
+  "last_update": "2026-02-18T00:15:13.705961"
+}
