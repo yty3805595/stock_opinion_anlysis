@@ -23,6 +23,58 @@ from enum import Enum
 OPTIONS_FILE = "data/options_portfolio.json"
 RD_SIGNALS_FILE = "data/rd_agent_signals.json"
 
+# 真实期权参数 (从 LongbridgeOptionsClient 导入)
+OPTION_PARAMS = {
+    "QQQ": {"strike_multiplier": 5, "min_premium": 15, "contract_size": 100},
+    "NVDA": {"strike_multiplier": 5, "min_premium": 10, "contract_size": 100},
+    "AMD": {"strike_multiplier": 2.5, "min_premium": 5, "contract_size": 100},
+    "PLTR": {"strike_multiplier": 2.5, "min_premium": 3, "contract_size": 100},
+    "TSLA": {"strike_multiplier": 10, "min_premium": 10, "contract_size": 100},
+    "GOOGL": {"strike_multiplier": 5, "min_premium": 10, "contract_size": 100},
+    "MSFT": {"strike_multiplier": 5, "min_premium": 10, "contract_size": 100},
+    "AAPL": {"strike_multiplier": 2.5, "min_premium": 5, "contract_size": 100},
+    "META": {"strike_multiplier": 10, "min_premium": 15, "contract_size": 100},
+    "AMZN": {"strike_multiplier": 5, "min_premium": 10, "contract_size": 100},
+}
+
+
+def get_option_params(symbol: str) -> Dict:
+    """获取期权参数"""
+    return OPTION_PARAMS.get(symbol, OPTION_PARAMS["QQQ"])
+
+
+def calculate_realistic_option(symbol: str, strategy: str, current_price: float) -> Dict:
+    """计算真实期权参数"""
+    params = get_option_params(symbol)
+    
+    if strategy == "hedge":
+        strike = round(current_price * 0.95 / params["strike_multiplier"]) * params["strike_multiplier"]
+        premium = params["min_premium"] + current_price * 0.02
+        days = 30
+    elif strategy == "bottom_fish":
+        strike = round(current_price * 0.90 / params["strike_multiplier"]) * params["strike_multiplier"]
+        premium = params["min_premium"] + current_price * 0.03
+        days = 60
+    else:
+        strike = round(current_price * 0.92 / params["strike_multiplier"]) * params["strike_multiplier"]
+        premium = params["min_premium"] + current_price * 0.025
+        days = 30
+    
+    premium = round(premium, 2)
+    
+    expiry = (datetime.now() + timedelta(days=days)).strftime("%Y-%m-%d")
+    expiry_code = expiry.replace("-", "")[2:]
+    option_code = f"{symbol}{expiry_code}P{int(strike)}"
+    
+    return {
+        "option_code": option_code,
+        "strike": strike,
+        "premium": premium,
+        "total_cost": premium * params["contract_size"],
+        "expiration": expiry,
+        "days": days
+    }
+
 
 class OptionType(Enum):
     """期权类型"""
@@ -272,12 +324,11 @@ class RDDevelopAgent:
     根据 Research 结果生成交易策略
     """
     
-    # 权重配置
+    # 权重配置 (无 Polymarket)
     WEIGHTS = {
-        "polymarket": 0.25,
         "news": 0.25,
-        "technical": 0.35,
-        "fundamental": 0.15
+        "technical": 0.40,
+        "fundamental": 0.35
     }
     
     # 策略映射
@@ -298,9 +349,8 @@ class RDDevelopAgent:
         """
         symbol = research.symbol
         
-        # 1. 计算综合 RD 分数
+        # 1. 计算综合 RD 分数 (无 Polymarket)
         rd_score = (
-            research.polymarket_sentiment * self.WEIGHTS["polymarket"] +
             research.news_sentiment * self.WEIGHTS["news"] +
             research.technical_score * self.WEIGHTS["technical"] +
             research.fundamental_score * self.WEIGHTS["fundamental"]
@@ -380,8 +430,8 @@ class RDDevelopAgent:
         else:
             position_size = base_size
         
-        # 置信度
-        confidence = 0.5 + research.polymarket_sentiment * 0.3 + research.news_sentiment * 0.2
+        # 置信度 (无 Polymarket)
+        confidence = 0.5 + research.news_sentiment * 0.5
         
         return {
             "strike": round(strike / 5) * 5,
@@ -392,14 +442,8 @@ class RDDevelopAgent:
     
     def _generate_reasoning(self, research: RDResearchResult, 
                            strategy: str, rd_score: float) -> str:
-        """生成交易理由"""
+        """生成交易理由 (无 Polymarket)"""
         reasons = []
-        
-        # Polymarket
-        if research.polymarket_sentiment > 0.7:
-            reasons.append(f"Polymarket情绪乐观 ({research.polymarket_sentiment:.0%})")
-        elif research.polymarket_sentiment < 0.4:
-            reasons.append(f"Polymarket情绪谨慎 ({research.polymarket_sentiment:.0%})")
         
         # 新闻
         if research.news_sentiment > 0.6:
@@ -474,49 +518,49 @@ class RDOptionsTrader:
         return strategy
     
     def execute_strategy(self, strategy: RDDevelopResult, 
-                        current_premium: float = None) -> Tuple[bool, str]:
-        """执行策略"""
+                        current_price: float = None) -> Tuple[bool, str]:
+        """执行策略 - 使用真实期权参数"""
         symbol = strategy.symbol
         
-        # 计算成本
-        position_value = 50000 * strategy.position_size  # 默认5万基准
-        quantity = max(1, int(position_value / 100))  # 每张约$100
-        premium = current_premium or 15.0
-        cost = premium * quantity * 100
+        # 使用真实期权参数 (当前价格)
+        option = calculate_realistic_option(
+            symbol, 
+            strategy.strategy_type, 
+            current_price or 100
+        )
+        
+        # 成本
+        cost = option["total_cost"]
         
         # 验证资金
         if cost > self.cash:
             return False, f"现金不足: ${self.cash:.2f} < ${cost:.2f}"
-        
-        # 生成期权代码
-        expiry_date = (datetime.now() + timedelta(days=strategy.expiration_days)).strftime("%Y-%m-%d")
-        underlying = f"{symbol}{expiry_date.replace('-', '')[2:]}P{int(strategy.strike_price)}"
         
         # 开仓
         self.cash -= cost
         
         position = OptionPosition(
             symbol=symbol,
-            underlying=underlying,
+            underlying=option["option_code"],
             option_type=strategy.option_type,
-            strike_price=strategy.strike_price,
-            expiration=expiry_date,
-            premium=premium,
-            quantity=quantity,
+            strike_price=option["strike"],
+            expiration=option["expiration"],
+            premium=option["premium"],
+            quantity=1,  # 1张合约
             open_date=datetime.now().strftime("%Y-%m-%d"),
             status="open",
             rd_strategy=strategy.strategy_type,
             rd_confidence=strategy.confidence,
-            current_price=premium,
+            current_price=option["premium"],
             market_value=cost,
             unrealized_pnl=0,
             return_pct=0
         )
         
-        self.positions[underlying] = position
+        self.positions[option["option_code"]] = position
         self.save()
         
-        return True, f"✅ 开仓: {underlying} | {strategy.strategy_type.upper()} | ${cost:.2f} | 置信度: {strategy.confidence:.0%}"
+        return True, f"✅ 开仓: {option['option_code']} | {strategy.strategy_type.upper()} | ${cost:.2f} | 置信度: {strategy.confidence:.0%}"
     
     def close_position(self, underlying: str) -> Tuple[bool, str]:
         """平仓"""
