@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Longbridge - 因子信号监控",
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 9,12,15,18,21 * * 1-5"
+    },
+    "payload": {
+      "kind": "agentTurn",
+      "message": "📊 Longbridge 因子信号监控:\n\n1. 获取 QQQ/NVDA/TSLA/GOOGL/MSFT 实时行情\n2. 计算技术因子 (MA, RSI, MACD, 波动率)\n3. 与 config/trading_config.json 中的因子置信度对比\n4. 生成调仓信号\n5. 如果需要调仓，生成限价订单\n\n输出:\n- 因子信号报告\n- 是否建议调仓\n- 建议的订单参数",
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "sessionTarget": "isolated",
+    "delivery": {
+      "mode": "announce"
+    },
+    "enabled": true
+  },
+  {
+    "name": "Longbridge - 订单状态检查",
+    "schedule": {
+      "kind": "cron",
+      "expr": "30 * * * 1-5"
+    },
+    "payload": {
+      "kind": "agentTurn",
+      "message": "🔍 Longbridge 订单状态检查:\n\n1. 使用 trade.today_orders() 获取今日订单\n2. 检查每个订单状态:\n   - New: 等待成交\n   - Filled: 完全成交\n   - PartialFilled: 部分成交\n   - Cancelled: 已取消\n   - Rejected: 被拒绝\n3. 如果有成交，更新持仓\n4. 如果订单被拒绝，分析原因\n5. 如果部分成交，检查是否需要追加\n\n输出:\n- 订单状态报告\n- 成交明细\n- 建议操作",
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "sessionTarget": "isolated",
+    "delivery": {
+      "mode": "announce"
+    },
+    "enabled": true
+  },
+  {
+    "name": "Longbridge - 自动调仓执行",
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 10 * * 1-5"
+    },
+    "payload": {
+      "kind": "agentTurn",
+      "message": "⚡ Longbridge 自动调仓执行:\n\n1. 读取 config/trading_config.json 中的目标配置\n2. 计算当前持仓与目标的差距\n3. 生成调仓订单:\n   - 买入: 当前价 × 0.985 (-1.5% 限价)\n   - 卖出: 当前价 × 1.015 (+1.5% 限价)\n4. 提交限价订单\n5. 记录订单到日志\n\n风控检查:\n- 单笔订单 ≤ $10,000\n- 日亏损 ≤ -3%\n- 总回撤 ≤ -5%\n\n输出:\n- 调仓订单详情\n- 预估成交价格\n- 风控检查结果",
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "sessionTarget": "isolated",
+    "delivery": {
+      "mode": "announce"
+    },
+    "enabled": true
+  },
+  {
+    "name": "Longbridge - 持仓风控监控",
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 9,12,15,18,21 * * 1-5"
+    },
+    "payload": {
+      "kind": "agentTurn",
+      "message": "🛡️ Longbridge 持仓风控监控:\n\n1. 获取当前持仓 (trade.stock_positions())\n2. 计算每只股票的:\n   - 浮动盈亏\n   - 收益率\n   - 距止损线的距离\n   - 距止盈线的距离\n3. 检查风控规则:\n   - 止损线: -5%\n   - 止盈线: +10%\n   - 移动止损: 盈利回吐 3%\n   - 单日亏损: -3%\n4. 如果触发风控:\n   - 生成止损订单\n   - 发送告警\n5. 如果接近止损线:\n   - 发送预警\n   - 建议减仓\n\n输出:\n- 风控状态报告\n- 告警/预警列表\n- 建议操作",
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "sessionTarget": "isolated",
+    "delivery": {
+      "mode": "announce"
+    },
+    "enabled": true
+  },
+  {
+    "name": "Longbridge - 盘前/盘后综述",
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 21 * * 1-5"
+    },
+    "payload": {
+      "kind": "agentTurn",
+      "message": "🌙 Longbridge 盘前综述:\n\n1. 获取当前持仓状态\n2. 检查未成交订单\n3. 分析明日可能的调仓需求\n4. 预览因子信号变化\n5. 准备明日交易计划\n\n检查清单:\n- 订单是否需要修改价格\n- 是否有新的调仓信号\n- 账户资金是否充足\n- 是否有风险敞口需要对冲\n\n输出:\n- 盘前综述报告\n- 明日交易计划\n- 需要关注的订单",
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "sessionTarget": "isolated",
+    "delivery": {
+      "mode": "announce"
+    },
+    "enabled": true
+  },
+  {
+    "name": "Longbridge - 周度复盘",
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 22 * * 5"
+    },
+    "payload": {
+      "kind": "agentTurn",
+      "message": "📈 Longbridge 周度复盘:\n\n1. 本周交易统计:\n   - 总交易次数\n   - 成交/未成交比例\n   - 平均成交价格vs限价\n2. 持仓表现:\n   - 各股票收益率\n   - 因子贡献度\n   - 调仓效果评估\n3. 风控统计:\n   - 触发风控次数\n   - 最大回撤\n   - 盈利回吐情况\n4. 改进建议:\n   - 调仓策略优化\n   - 限价参数调整\n   - 风控阈值优化\n\n输出:\n- 周度复盘报告\n- 下周交易策略\n- 需要调整的参数",
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "sessionTarget": "isolated",
+    "delivery": {
+      "mode": "announce"
+    },
+    "enabled": true
+  }
+]
