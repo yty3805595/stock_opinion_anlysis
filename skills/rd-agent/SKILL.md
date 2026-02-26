@@ -15,29 +15,34 @@ author: Astra Team
 
 | 功能 | 脚本 | 说明 |
 |------|------|------|
+| **实盘交易** | `rd_agent_trading_v2.py` | 因子+信号+期权+实盘执行 |
 | **自动挖掘回测** | `rd_agent_auto_mining.py` | 自动化因子挖掘 + 回测 + 复盘 |
 | 因子挖掘 | `rd_agent_factor_mining_v2.py` | 77+ 技术因子挖掘与评估 |
 | 每日回测 (真实) | `rd_agent_backtest_v2.py` | yfinance 真实数据回测 |
-| 每日回测 (模拟) | `rd_agent_backtest_scheduler.py` | 多标的每日回测 |
-| 信号分析 | `rd_agent_trading.py` | 交易信号生成 |
 | 期权监控 | `rd_options_tool.py` | 期权持仓监控 |
 
 ---
 
 ## 快速使用
 
-### 1. 自动挖掘回测 (推荐)
+### 1. 实盘交易系统 (推荐)
+
+```bash
+python3 skills/rd-agent/scripts/rd_agent_trading_v2.py
+```
+
+**功能:**
+- 自动获取持仓 (Longbridge)
+- 实时行情
+- 因子分析 & 信号生成
+- 期权分析
+- 执行建议
+
+### 2. 自动挖掘回测
 
 ```bash
 python3 skills/rd-agent/scripts/rd_agent_auto_mining.py
 ```
-
-**自动完成:**
-- 遍历 8 个标的 (QQQ, SPY, NVDA, GOOGL, MSFT, TSLA, AAPL, META)
-- 计算 45+ 因子
-- 评估 IC 值
-- 回测 Top 因子
-- 生成复盘报告
 
 ### 2. 每日回测 (真实数据)
 
