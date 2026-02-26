@@ -1,0 +1,26 @@
+{
+  "name": "rd-agent",
+  "version": "2.0.0",
+  "description": "增强版 RD-Agent 量化交易系统 - 因子挖掘、回测、信号生成",
+  "author": "Astra Team",
+  "scripts": [
+    "scripts/rd_agent_factor_mining_v2.py",
+    "scripts/rd_agent_backtest_scheduler.py",
+    "scripts/rd_agent_trading.py",
+    "scripts/rd_options_tool.py",
+    "scripts/sync_portfolio.py"
+  ],
+  "dependencies": [
+    "longbridge",
+    "pandas",
+    "numpy"
+  ],
+  "keywords": [
+    "trading",
+    "quantitative",
+    "factor-mining",
+    "backtesting",
+    "stock",
+    "options"
+  ]
+}

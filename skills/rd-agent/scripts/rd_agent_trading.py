@@ -1,0 +1,1 @@
+../../../scripts/rd_agent_trading.py

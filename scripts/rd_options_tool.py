@@ -168,8 +168,8 @@ def monitor():
     total_pnl = 0
     
     for code, pos in positions.items():
-        value = pos.get('market_value', pos.get('cost', 0))
-        pnl = pos.get('unrealized_pnl', 0)
+        value = pos.get('market_value') or pos.get('cost', 0) or 0
+        pnl = pos.get('unrealized_pnl', 0) or 0
         total_value += value
         total_pnl += pnl
         
