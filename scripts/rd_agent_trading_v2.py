@@ -327,6 +327,10 @@ class RDAgentTradingSystem:
         print("\n" + "=" * 80)
         print("📋 交易信号报告")
         print("=" * 80)
+        print("\n📝 策略说明:")
+        print("  - 买入条件: 均线多头 + RSI不极端 + MACD金叉 + 成交量放大 + 布林不超买")
+        print("  - 卖出条件: 均线死叉 + RSI超买 + MACD死叉 + 布林超买")
+        print("  - 置信度 = (得分 + 1) / 2")
         
         # 按置信度排序
         sorted_signals = sorted(signals.items(), key=lambda x: x[1]['confidence'], reverse=True)
