@@ -16,6 +16,7 @@ author: Astra Team
 | 功能 | 脚本 | 说明 |
 |------|------|------|
 | **实盘交易** | `rd_agent_trading_v2.py` | 因子+信号+期权+实盘执行 |
+| **图表可视化** | `rd_agent_chart.py` | TradingView Lightweight Charts 可视化 |
 | **自动挖掘回测** | `rd_agent_auto_mining.py` | 自动化因子挖掘 + 回测 + 复盘 |
 | 因子挖掘 | `rd_agent_factor_mining_v2.py` | 77+ 技术因子挖掘与评估 |
 | 每日回测 (真实) | `rd_agent_backtest_v2.py` | yfinance 真实数据回测 |
@@ -25,7 +26,20 @@ author: Astra Team
 
 ## 快速使用
 
-### 1. 实盘交易系统 (推荐)
+### 1. 图表可视化 (TradingView Lightweight Charts)
+
+```bash
+python3 skills/rd-agent/scripts/rd_agent_chart.py --symbol NVDA
+# 然后打开 /tmp/rd_agent_NVDA.html 查看
+```
+
+**生成交互式图表:**
+- K线 + 均线 (MA5, MA20)
+- 成交量
+- RSI
+- MACD
+
+### 2. 实盘交易系统
 
 ```bash
 python3 skills/rd-agent/scripts/rd_agent_trading_v2.py
