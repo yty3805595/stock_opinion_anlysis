@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "skills": {
+    "bing-search": {
+      "version": "1.0.0",
+      "installedAt": 1770880687032
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1770880705623
+    },
+    "analytics-tracking": {
+      "version": "1.0.0",
+      "installedAt": 1770881305173
+    },
+    "advanced-skill-creator": {
+      "version": "1.0.0",
+      "installedAt": 1770954503222
+    },
+    "peekaboo": {
+      "version": "1.0.0",
+      "installedAt": 1770968172671
+    },
+    "stock-analysis": {
+      "version": "6.2.0",
+      "installedAt": 1770972280327
+    },
+    "stock-market-pro": {
+      "version": "1.1.0",
+      "installedAt": 1770972363734
+    },
+    "tushare-base": {
+      "version": "1.0.0",
+      "installedAt": 1770980862143
+    },
+    "memory-manager": {
+      "version": "1.0.0",
+      "installedAt": 1770981419754
+    },
+    "polymarket-api": {
+      "version": "1.0.0",
+      "installedAt": 1770984977469
+    },
+    "polymarket-analysis": {
+      "version": "2.1.0",
+      "installedAt": 1770984981775
+    },
+    "polymarket-arbitrage": {
+      "version": "0.1.0",
+      "installedAt": 1770984985450
+    },
+    "polymarket-trader": {
+      "version": "1.0.0",
+      "installedAt": 1771049423432
+    },
+    "tushare-finance": {
+      "version": "2.0.6",
+      "installedAt": 1771081521422
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1771139669196
+    },
+    "capability-evolver": {
+      "version": "1.14.0",
+      "installedAt": 1771514157905
+    },
+    "qmd": {
+      "version": "1.0.0",
+      "installedAt": 1771937883231
+    },
+    "qmd-search": {
+      "version": "1.1.0",
+      "installedAt": 1771938191876
+    },
+    "tiangong-notebooklm-cli": {
+      "version": "0.1.1",
+      "installedAt": 1771940765118
+    },
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1771940767793
+    },
+    "openclaw-skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1772164395839
+    },
+    "self-improving-agent": {
+      "version": "1.0.11",
+      "installedAt": 1772171732890
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1772171761660
+    },
+    "ontology": {
+      "version": "0.1.2",
+      "installedAt": 1772172285920
+    }
+  }
+}

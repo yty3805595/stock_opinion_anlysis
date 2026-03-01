@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-03-01T00:16:40.038102",
+  "positions": [
+    {
+      "symbol": "TSLA.US",
+      "name": "Tesla",
+      "quantity": 10.0,
+      "cost_price": 416.67,
+      "market": "Market.US",
+      "type": "stock",
+      "current_price": 402.51,
+      "market_value": 4025.1,
+      "unrealized_pnl": -141.5999999999999,
+      "unrealized_pnl_pct": -3.398372813017494
+    },
+    {
+      "symbol": "MSFT.US",
+      "name": "Microsoft",
+      "quantity": 25.0,
+      "cost_price": 401.78,
+      "market": "Market.US",
+      "type": "stock",
+      "current_price": 392.74,
+      "market_value": 9818.5,
+      "unrealized_pnl": -226.0,
+      "unrealized_pnl_pct": -2.2499875553785653
+    },
+    {
+      "symbol": "GOOGL.US",
+      "name": "Alphabet",
+      "quantity": 33.0,
+      "cost_price": 309.0,
+      "market": "Market.US",
+      "type": "stock",
+      "current_price": 311.76,
+      "market_value": 10288.08,
+      "unrealized_pnl": 91.07999999999993,
+      "unrealized_pnl_pct": 0.893203883495145
+    },
+    {
+      "symbol": "QQQ.US",
+      "name": "Invesco QQQ Trust",
+      "quantity": 68.0,
+      "cost_price": 600.64,
+      "market": "Market.US",
+      "type": "stock",
+      "current_price": 607.29,
+      "market_value": 41295.72,
+      "unrealized_pnl": 452.20000000000437,
+      "unrealized_pnl_pct": 1.1071523708044861
+    },
+    {
+      "symbol": "TSLA260320P395000.US",
+      "name": "TSLA 260320 395 Put",
+      "quantity": 1.0,
+      "cost_price": 11.73,
+      "market": "Market.US",
+      "type": "stock",
+      "current_price": 11.86,
+      "market_value": 11.86,
+      "unrealized_pnl": 0.129999999999999,
+      "unrealized_pnl_pct": 1.108269394714399
+    }
+  ],
+  "account": {
+    "total_assets": 796761.4,
+    "currency": "HKD",
+    "total_cash": 279123.69,
+    "cash_by_currency": {
+      "USD": {
+        "available": 35789.78,
+        "frozen": 29.75,
+        "settling": 16736.75
+      },
+      "HKD": {
+        "available": 0.0,
+        "frozen": 0.0,
+        "settling": 0.0
+      }
+    }
+  }
+}

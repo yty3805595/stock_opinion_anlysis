@@ -16,8 +16,7 @@ from dataclasses import dataclass
 
 # 尝试导入 Longbridge
 try:
-    from longbridge.openapi import WsConfig, Config, Quote, Period, AdjustType
-    from longbridge.openapi import OrderType, TimeInForce, OrderSide, ProductType
+    from longbridge.openapi import QuoteContext, Config, Period, AdjustType
     HAS_LONGBRIDGE = True
 except ImportError:
     HAS_LONGBRIDGE = False
@@ -72,12 +71,17 @@ class LongbridgeDataFetcher:
                     access_token=tokens.get('access_token', '')
                 )
                 
+                # 创建行情上下文
+                self.quote_ctx = QuoteContext(config)
+                
                 logger.info("✅ Longbridge 连接初始化成功")
             else:
                 logger.warning(f"⚠️ Token 文件不存在: {self.config_path}")
+                self.quote_ctx = None
                 
         except Exception as e:
             logger.error(f"❌ Longbridge 初始化失败: {e}")
+            self.quote_ctx = None
     
     def get_candlesticks(self, 
                         symbol: str, 
@@ -106,17 +110,16 @@ class LongbridgeDataFetcher:
                 "day": Period.Day,
                 "week": Period.Week,
                 "month": Period.Month,
-                "hour": Period.Hour,
-                "30min": Period.Minute30,
-                "15min": Period.Minute15,
-                "5min": Period.Minute5,
-                "1min": Period.Minute,
+                "hour": Period.Min_60,
+                "30min": Period.Min_30,
+                "15min": Period.Min_15,
+                "5min": Period.Min_5,
+                "1min": Period.Min_1,
             }
             
             adjust_map = {
                 "no_adjust": AdjustType.NoAdjust,
                 "forward_adjust": AdjustType.ForwardAdjust,
-                "backward_adjust": AdjustType.BackwardAdjust,
             }
             
             # 获取K线
@@ -131,15 +134,15 @@ class LongbridgeDataFetcher:
                 logger.warning(f"⚠️ 获取K线为空: {symbol}")
                 return self._generate_mock_data(symbol, count)
             
-            # 转换为 DataFrame
+            # 转换为 DataFrame (转换为 float)
             df = pd.DataFrame({
                 'timestamp': [c.timestamp for c in candles],
-                'open': [c.open for c in candles],
-                'high': [c.high for c in candles],
-                'low': [c.low for c in candles],
-                'close': [c.close for c in candles],
-                'volume': [c.volume for c in candles],
-                'turnover': [c.turnover for c in candles],
+                'open': [float(c.open) for c in candles],
+                'high': [float(c.high) for c in candles],
+                'low': [float(c.low) for c in candles],
+                'close': [float(c.close) for c in candles],
+                'volume': [float(c.volume) for c in candles],
+                'turnover': [float(c.turnover) for c in candles],
             })
             
             # 转换时间戳

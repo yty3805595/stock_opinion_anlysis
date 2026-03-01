@@ -29,6 +29,7 @@ def get_contexts():
     creds = load_credentials()
     config = Config(
         app_key=creds["app_key"],
+        app_secret=creds["app_secret"],
         access_token=creds["access_token"]
     )
     return TradeContext(config=config), QuoteContext(config=config)

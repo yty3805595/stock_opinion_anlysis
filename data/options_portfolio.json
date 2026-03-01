@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-03-01T00:16:40.038102",
+  "positions": {},
+  "cash": 35789.78,
+  "account": {
+    "total_assets": 796761.4,
+    "currency": "HKD",
+    "total_cash": 279123.69,
+    "cash_by_currency": {
+      "USD": {
+        "available": 35789.78,
+        "frozen": 29.75,
+        "settling": 16736.75
+      },
+      "HKD": {
+        "available": 0.0,
+        "frozen": 0.0,
+        "settling": 0.0
+      }
+    }
+  }
+}

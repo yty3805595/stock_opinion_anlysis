@@ -1,0 +1,398 @@
+{
+  "scan_time": "2026-02-27T14:34:55.947547+00:00",
+  "top_trending": [
+    {
+      "symbol": "BTC",
+      "mentions": 8,
+      "sources": [
+        "CoinGecko Trending",
+        "Google News Crypto"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-2.9%)"
+      ]
+    },
+    {
+      "symbol": "ETH",
+      "mentions": 6,
+      "sources": [
+        "CoinGecko Trending",
+        "Google News Crypto"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-5.3%)"
+      ]
+    },
+    {
+      "symbol": "ROBO",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+7.9%)"
+      ]
+    },
+    {
+      "symbol": "SAHARA",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+57.9%)"
+      ]
+    },
+    {
+      "symbol": "PENGU",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-2.6%)"
+      ]
+    },
+    {
+      "symbol": "POWER",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-34.9%)"
+      ]
+    },
+    {
+      "symbol": "SOL",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-5.4%)"
+      ]
+    },
+    {
+      "symbol": "VVV",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+15.4%)"
+      ]
+    },
+    {
+      "symbol": "RIVER",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-0.3%)"
+      ]
+    },
+    {
+      "symbol": "PI",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+0.1%)"
+      ]
+    },
+    {
+      "symbol": "RICO",
+      "mentions": 1,
+      "sources": [
+        "Google News Crypto"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "XRP",
+      "mentions": 1,
+      "sources": [
+        "Google News Crypto"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "NYC",
+      "mentions": 1,
+      "sources": [
+        "Google News Crypto"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "WALB",
+      "mentions": 1,
+      "sources": [
+        "Google News Crypto"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "NFLX",
+      "mentions": 1,
+      "sources": [
+        "Yahoo Losers"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "XYZ",
+      "mentions": 1,
+      "sources": [
+        "Yahoo Losers"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "DUOL",
+      "mentions": 1,
+      "sources": [
+        "Yahoo Losers"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "CRWV",
+      "mentions": 1,
+      "sources": [
+        "Yahoo Losers"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "SEZL",
+      "mentions": 1,
+      "sources": [
+        "Yahoo Losers"
+      ],
+      "signals": []
+    },
+    {
+      "symbol": "LMAT",
+      "mentions": 1,
+      "sources": [
+        "Yahoo Losers"
+      ],
+      "signals": []
+    }
+  ],
+  "crypto_highlights": [
+    {
+      "symbol": "ROBO",
+      "name": "Fabric Protocol",
+      "rank": 302,
+      "price_change_24h": 7.88,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "SAHARA",
+      "name": "Sahara AI",
+      "rank": 355,
+      "price_change_24h": 57.94,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "PENGU",
+      "name": "Pudgy Penguins",
+      "rank": 107,
+      "price_change_24h": -2.57,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "rank": 1,
+      "price_change_24h": -2.88,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "POWER",
+      "name": "Power Protocol",
+      "rank": 133,
+      "price_change_24h": -34.89,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "rank": 2,
+      "price_change_24h": -5.35,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "SOL",
+      "name": "Solana",
+      "rank": 7,
+      "price_change_24h": -5.42,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "VVV",
+      "name": "Venice Token",
+      "rank": 168,
+      "price_change_24h": 15.4,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "RIVER",
+      "name": "River",
+      "rank": 170,
+      "price_change_24h": -0.33,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "PI",
+      "name": "Pi Network",
+      "rank": 49,
+      "price_change_24h": 0.05,
+      "source": "coingecko_trending"
+    }
+  ],
+  "stock_highlights": [
+    {
+      "symbol": "NFLX",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "XYZ",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "DUOL",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "CRWV",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "SEZL",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "LMAT",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "FA",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "IONQ",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "HPP",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "EOSE",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "ACMR",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "FOUR",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "FSK",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "MIRM",
+      "category": "losers",
+      "source": "yahoo_losers"
+    },
+    {
+      "symbol": "NVDA",
+      "category": "losers",
+      "source": "yahoo_losers"
+    }
+  ],
+  "social_buzz": [],
+  "breaking_news": [
+    {
+      "title": "Crypto News Today: Pepeto Presale Tops $7.32M as Trump Fuels Bitcoin and Bitcoin Price Prediction Targets $225K - markets.businessinsider.com",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "title": "Crypto Market Today: Bitcoin and Ethereum Pump After Jane Street Lawsuit - Coinpedia Fintech News",
+      "tickers": [
+        "ETH",
+        "BTC"
+      ]
+    },
+    {
+      "title": "Bitcoin Cash, Hyperliquid, Pump.fun extend losses as Bitcoin drops below $64,000 - FXStreet",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "title": "Ethereum gas fees: The cost of doing (crypto) business - Britannica",
+      "tickers": [
+        "ETH"
+      ]
+    },
+    {
+      "title": "Crypto Crash Prediction Comes True: Here\u2019s What\u2019s Next For Bitcoin And Ethereum - TradingView",
+      "tickers": [
+        "ETH",
+        "BTC"
+      ]
+    },
+    {
+      "title": "Lime Co-Founder Brad Bao Faces $100M Federal RICO Lawsuit: Complaint Alleges Crypto Pump-and-Dump Scheme Through Cere Network Token - FinanceFeeds",
+      "tickers": [
+        "RICO"
+      ]
+    },
+    {
+      "title": "Crypto Shorts Get Rekt as Bitcoin, Ethereum and XRP Spike Ahead of Fed Decision - Decrypt",
+      "tickers": [
+        "ETH",
+        "BTC",
+        "XRP"
+      ]
+    },
+    {
+      "title": "Eric Adams\u2019 NYC Token Crashes 80% in Hours, Offering a Stark Lesson in Why Bitcoin Is Different - Bitcoin Magazine",
+      "tickers": [
+        "NYC",
+        "BTC"
+      ]
+    },
+    {
+      "title": "New crypto mine could pump millions into a South Georgia community - WALB",
+      "tickers": [
+        "WALB"
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@ import os
 import sys
 import json
 import random
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, asdict
@@ -602,10 +602,25 @@ class RDOptionsTrader:
                 self.cash = data.get("cash", 50000)
                 self.positions = {}
                 for k, v in data.get("positions", {}).items():
-                    # 兼容旧数据
-                    v.setdefault("rd_strategy", "unknown")
-                    v.setdefault("rd_confidence", 0.5)
-                    self.positions[k] = OptionPosition(**v)
+                    # 兼容旧数据格式
+                    mapped = {
+                        "symbol": v.get("symbol", k),
+                        "underlying": v.get("underlying", v.get("symbol", k).split("_")[0].split(".")[0]),
+                        "option_type": v.get("option_type", "call"),
+                        "strike_price": v.get("strike_price", 0),
+                        "expiration": v.get("expiration") or v.get("expiry", ""),
+                        "premium": v.get("premium") or v.get("cost_price") or v.get("cost", 0),
+                        "quantity": int(v.get("quantity", 1)),
+                        "open_date": v.get("open_date", ""),
+                        "status": v.get("status", "open"),
+                        "rd_strategy": v.get("rd_strategy", "unknown"),
+                        "rd_confidence": v.get("rd_confidence", 0.5),
+                        "current_price": v.get("current_price") or v.get("premium") or v.get("cost_price") or 0,
+                        "market_value": v.get("market_value", 0),
+                        "unrealized_pnl": v.get("unrealized_pnl", 0),
+                        "return_pct": v.get("return_pct", 0)
+                    }
+                    self.positions[k] = OptionPosition(**mapped)
     
     def save(self):
         """保存持仓"""
