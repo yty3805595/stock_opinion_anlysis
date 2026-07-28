@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-07-28T08:05:31.808349",
+  "total_cost": 226705.56,
+  "total_pnl": -90150.1184411621,
+  "total_pnl_pct": -39.765287821420046,
+  "positions": [
+    {
+      "symbol": "ASTS.US",
+      "type": "stock",
+      "quantity": 1440,
+      "cost_price": 113.55,
+      "current_price": 58.290000915527344,
+      "unrealized_pnl": -79574.39868164062,
+      "unrealized_pnl_pct": -48.665785191081156
+    },
+    {
+      "symbol": "AAOI.US",
+      "type": "stock",
+      "quantity": 12,
+      "cost_price": 28.63,
+      "current_price": 97.81999969482422,
+      "unrealized_pnl": 830.2799963378907,
+      "unrealized_pnl_pct": 241.6695763004688
+    },
+    {
+      "symbol": "GOOGL.US",
+      "type": "stock",
+      "quantity": 100,
+      "cost_price": 365.0,
+      "current_price": 326.55999755859375,
+      "unrealized_pnl": -3844.000244140625,
+      "unrealized_pnl_pct": -10.531507518193495
+    },
+    {
+      "symbol": "NBIS.US",
+      "type": "stock",
+      "quantity": 100,
+      "cost_price": 263.5,
+      "current_price": 187.8800048828125,
+      "unrealized_pnl": -7561.99951171875,
+      "unrealized_pnl_pct": -28.69829036705408
+    }
+  ],
+  "alerts": [
+    "ASTS.US \u89e6\u53d1\u6b62\u635f (-48.67%)",
+    "AAOI.US \u89e6\u53d1\u6b62\u76c8 (241.67%)",
+    "GOOGL.US \u89e6\u53d1\u6b62\u635f (-10.53%)",
+    "NBIS.US \u89e6\u53d1\u6b62\u635f (-28.70%)"
+  ]
+}
