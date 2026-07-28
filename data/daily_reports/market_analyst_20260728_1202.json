@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-07-28T12:03:08.693013",
+  "vix": 18.67,
+  "tlt": 83.75,
+  "gld": 374.63,
+  "btc": 63265,
+  "sentiment": "NEUTRAL",
+  "risk_level": "medium",
+  "buy_signals": 0,
+  "observation_count": 1,
+  "observation": "NVDA, MSFT, GOOGL"
+}
