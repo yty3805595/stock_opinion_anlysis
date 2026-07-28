@@ -1,4 +1,8 @@
 {
+  "timestamp": "2026-07-29T01:30:32.597129",
+  "total_cost": 226705.56,
+  "total_pnl": -93086.54272705078,
+  "total_pnl_pct": -41.06054687280311,
   "positions": [
     {
       "symbol": "ASTS.US",
@@ -37,5 +41,10 @@
       "unrealized_pnl_pct": -36.40986809920541
     }
   ],
-  "last_update": "2026-07-29T01:30:16.669047"
+  "alerts": [
+    "ASTS.US \u89e6\u53d1\u6b62\u635f (-49.67%)",
+    "AAOI.US \u89e6\u53d1\u6b62\u76c8 (206.88%)",
+    "GOOGL.US \u89e6\u53d1\u6b62\u635f (-8.20%)",
+    "NBIS.US \u89e6\u53d1\u6b62\u635f (-36.41%)"
+  ]
 }
