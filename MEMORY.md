@@ -177,6 +177,26 @@ for bal in balance:
 - ⚠️ **以上价格为缓存数据**，真实价格可能有所不同，需尽快恢复 API 同步
 - 📊 **美股周五已收盘**，下次开盘为 2026-08-31 21:30 GMT+8 (周一)
 
+### RD-Agent 交易分析 (2026-08-29 11:03)
+
+**来源:** `skills/rd-agent/scripts/rd_agent_auto_mining.py` (yfinance 历史数据)
+
+**全局 Top 因子:**
+| 排名 | 标的 | 因子 | IC | 收益 | 夏普 |
+|------|------|------|-----|------|------|
+| 1 | TSLA | volume_ma5 | 0.141 | +247.7% | 1.23 |
+| 2 | TSLA | volume_ma20 | 0.105 | +114.8% | 0.84 |
+| 3 | TSLA | volatility_60 | 0.039 | -3.8% | 0.19 |
+| 4 | MSFT | volatility_60 | 0.092 | -4.3% | 0.02 |
+| 5 | AAPL | k_d_cross | 0.086 | -10.4% | -0.10 |
+
+**关键观察:**
+- 🟢 **TSLA 成交量因子强势**: volume 相关因子是本次唯一显著正收益信号
+- 🔴 **大盘科技股整体弱势**: QQQ, SPY, NVDA, GOOGL, META 最佳因子收益均为负
+- ⚠️ 基于历史数据，未包含实时行情，需结合 Longbridge 恢复后验证
+
+**报告文件:** `data/daily_reports/rd_agent_auto_mining_2026-08-29.md`
+
 ---
 
 ### 历史持仓 (2026-07-28 04:32 GMT+8)
