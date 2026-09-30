@@ -1,7 +1,7 @@
 # 📚 Tavily Search 使用指南
 
 **创建时间**: 2026-02-15  
-**API Key**: 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
+**API Key**: 从环境变量 `TAVILY_API_KEY` 读取
 
 ---
 
@@ -22,8 +22,12 @@ npx clawhub install tavily-search
 ### 2. 设置 API Key
 
 ```bash
-export TAVILY_API_KEY="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"
+export TAVILY_API_KEY="<your-tavily-api-key>"
 ```
+
+以上仅为占位符；请通过本地安全配置或部署平台的密钥管理功能注入真实值，不要提交到 Git，也不要发送到聊天或写入日志。脚本直接读取环境变量，不会自动加载 `.env` 文件。
+
+如果密钥曾经公开，请先在 Tavily 控制台撤销旧密钥，再自行配置新密钥；删除当前文件中的值不会清除 Git 历史中的泄露记录。
 
 ### 3. 基本搜索
 
@@ -202,7 +206,7 @@ node scripts/search.mjs "BTC 价格预测 2026" --topic news --days 14
 
 - **官网**: https://tavily.com
 - **文档**: https://docs.tavily.com
-- **API Key**: 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
+- **API Key**: 从环境变量 `TAVILY_API_KEY` 读取
 
 ---
 

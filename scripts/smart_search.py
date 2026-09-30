@@ -106,7 +106,12 @@ class SmartSearch:
     def _search_tavily(self, query: str, num_results: int = 5) -> Dict:
         """Tavily 搜索"""
         try:
-            os.environ['TAVILY_API_KEY'] = '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'
+            if not os.environ.get('TAVILY_API_KEY', '').strip():
+                return {
+                    'source': 'tavily',
+                    'status': 'error',
+                    'message': 'Missing TAVILY_API_KEY'
+                }
             
             result = subprocess.run([
                 'node',

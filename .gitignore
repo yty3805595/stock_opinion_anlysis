@@ -1,0 +1,6 @@
+# Local environment credentials (scripts read the process environment).
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]

@@ -2,7 +2,7 @@
 """
 Travily Search - Web Search Tool
 
-API Key: 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
+Configure TAVILY_API_KEY in the environment before use.
 """
 
 import requests
@@ -14,8 +14,10 @@ class TravilySearch:
     """Travily Search API"""
     
     def __init__(self, api_key: str = None):
-        self.api_key = api_key or os.environ.get("TRAVILY_API_KEY", "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")
-        self.base_url = "https://api.travily.com"
+        self.api_key = (api_key or os.environ.get("TAVILY_API_KEY", "")).strip()
+        if not self.api_key:
+            raise ValueError("Missing TAVILY_API_KEY")
+        self.base_url = "https://api.tavily.com"
     
     def search(self, query: str, num_results: int = 10) -> List[Dict]:
         """
